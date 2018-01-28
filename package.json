@@ -1,0 +1,19 @@
+{
+  "name": "todo_jquery",
+  "version": "1.0.0",
+  "description": "``` Technologies Used:",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cwithac/todo_jquery.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cwithac/todo_jquery/issues"
+  },
+  "homepage": "https://github.com/cwithac/todo_jquery#readme"
+}
