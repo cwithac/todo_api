@@ -9,7 +9,7 @@ app.use('/api/todos', todoRoutes);
 
 //Routes
 app.get('/', (req, res) => {
-  res.send('Landing')
+  res.send('Landing');
 });
 
 //Listener
