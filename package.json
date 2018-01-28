@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/cwithac/todo_jquery/issues"
   },
-  "homepage": "https://github.com/cwithac/todo_jquery#readme"
+  "homepage": "https://github.com/cwithac/todo_jquery#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
 }
