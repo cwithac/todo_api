@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const todoSchema = new mongoose.Schema({
   name: { type: String, required: 'Item cannot be blank.' },
-  compelted: { type: Boolean, default: false },
+  completed: { type: Boolean, default: false },
   created_date: { type: Date, default: Date.now }
 });
 
