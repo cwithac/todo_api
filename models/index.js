@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 mongoose.set('debug', true);
-mongoose.createConnection('mongodb://localhost/udemy_todoapi');
+mongoose.connect('mongodb://localhost/udemy_todoapi', { useMongoClient: true, promiseLibrary: global.Promise });
 
 mongoose.Promise = Promise;
 
