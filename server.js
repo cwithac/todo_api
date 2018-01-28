@@ -2,8 +2,12 @@
 const express = require('express');
 const app = express();
 const PORT = 3001;
+const bodyParser = require('body-parser')
 
 //Middleware
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
+
 const todoRoutes = require('./routes/todos');
 app.use('/api/todos', todoRoutes);
 
