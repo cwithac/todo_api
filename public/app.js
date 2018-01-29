@@ -1,6 +1,11 @@
 $(document).ready(() => {
     $.getJSON('/api/todos')
-    .then((data) => {
-      console.log(data);
-    });
+    .then(addTodos)
 }); //
+
+const addTodos = (todos) => {
+  todos.forEach(todo => {
+    const newTodo = $('<li>' + todo.name + '</li>');
+    $('.list').append(newTodo);
+  })
+};
