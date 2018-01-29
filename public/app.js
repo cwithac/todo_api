@@ -1,5 +1,6 @@
 $(document).ready(() => {
 
+//GET
     $.getJSON('/api/todos')
     .then(addTodos)
 
@@ -9,10 +10,25 @@ $(document).ready(() => {
       };
     });
 
+//PUT
     $('.list').on('click', 'li', (e) => {
-      console.log('click');
+      const $this = $(e.currentTarget);
+      const $completed = $this.data('completed');
+      const $dataID = $this.data('id');
+      const isDone = !$this.data('completed');
+      const updateData = {completed: isDone};
+      $.ajax({
+        method: 'PUT',
+        url: '/api/todos/' + $dataID,
+        data: updateData
+      })
+      .then((todo) => {
+        $this.toggleClass('done')
+        $this.data('completed', isDone)
+      })
     });
 
+//DELETE
     $('.list').on('click', 'span', (e) => {
       e.stopPropagation();
       const $this = $(e.currentTarget);
@@ -31,12 +47,14 @@ $(document).ready(() => {
 
 }); //
 
+//GET
 const addTodos = (todos) => {
   todos.forEach(todo => {
     insertTodo(todo);
   })
 };
 
+//POST
 const createTodo = () => {
   const input = $('#todoInput').val();
   $.post('/api/todos', {name: input})
@@ -52,6 +70,7 @@ const createTodo = () => {
 const insertTodo = (todo) => {
     const newTodo = $('<li>' + todo.name + '<span>x</span></li>').addClass('task');
     newTodo.data('id', todo._id);
+    newTodo.data('completed', todo.completed);
     if (todo.completed) {
       newTodo.addClass('done');
     }
