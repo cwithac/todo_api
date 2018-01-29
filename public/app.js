@@ -11,7 +11,15 @@ $(document).ready(() => {
 
     $('.list').on('click', 'span', (e) => {
       const $this = $(e.currentTarget);
+      const $dataID = $this.parent().data('id');
       $this.parent().remove()
+      $.ajax({
+        method: 'DELETE',
+        url: '/api/todos/' + $dataID
+      })
+      .then((data) => {
+        console.log(data);
+      })
     })
 
 }); //
@@ -36,6 +44,7 @@ const createTodo = () => {
 
 const insertTodo = (todo) => {
     const newTodo = $('<li>' + todo.name + '<span>x</span></li>').addClass('task');
+    newTodo.data('id', todo._id);
     if (todo.completed) {
       newTodo.addClass('done');
     }
