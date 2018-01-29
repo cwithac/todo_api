@@ -12,7 +12,6 @@ $(document).ready(() => {
     $('.list').on('click', 'span', (e) => {
       const $this = $(e.currentTarget);
       const $dataID = $this.parent().data('id');
-      // $this.parent().remove()
       $.ajax({
         method: 'DELETE',
         url: '/api/todos/' + $dataID
