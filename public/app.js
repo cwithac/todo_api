@@ -13,11 +13,7 @@ $(document).ready(() => {
 
 const addTodos = (todos) => {
   todos.forEach(todo => {
-    const newTodo = $('<li>' + todo.name + '</li>').addClass('task');
-    if (todo.completed) {
-      newTodo.addClass('done');
-    }
-    $('.list').append(newTodo);
+    insertTodo(todo);
   })
 };
 
@@ -25,9 +21,18 @@ const createTodo = () => {
   const input = $('#todoInput').val();
   $.post('/api/todos', {name: input})
   .then((todo) => {
-    console.log(todo);
+    $('#todoInput').val('');
+    insertTodo(todo)
   })
   .catch((err) => {
     console.log(err);
   });
+};
+
+const insertTodo = (todo) => {
+    const newTodo = $('<li>' + todo.name + '</li>').addClass('task');
+    if (todo.completed) {
+      newTodo.addClass('done');
+    }
+    $('.list').append(newTodo);
 };
