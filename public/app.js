@@ -1,6 +1,14 @@
 $(document).ready(() => {
+
     $.getJSON('/api/todos')
     .then(addTodos)
+
+    $('#todoInput').keypress((event) => {
+      if (event.which === 13) {
+        createTodo();
+      };
+    });
+
 }); //
 
 const addTodos = (todos) => {
@@ -11,4 +19,15 @@ const addTodos = (todos) => {
     }
     $('.list').append(newTodo);
   })
+};
+
+const createTodo = () => {
+  const input = $('#todoInput').val();
+  $.post('/api/todos', {name: input})
+  .then((todo) => {
+    console.log(todo);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 };
