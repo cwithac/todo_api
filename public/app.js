@@ -9,6 +9,11 @@ $(document).ready(() => {
       };
     });
 
+    $('.list').on('click', 'span', (e) => {
+      const $this = $(e.currentTarget);
+      $this.parent().remove()
+    })
+
 }); //
 
 const addTodos = (todos) => {
@@ -30,7 +35,7 @@ const createTodo = () => {
 };
 
 const insertTodo = (todo) => {
-    const newTodo = $('<li>' + todo.name + '</li>').addClass('task');
+    const newTodo = $('<li>' + todo.name + '<span>x</span></li>').addClass('task');
     if (todo.completed) {
       newTodo.addClass('done');
     }
