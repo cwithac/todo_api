@@ -9,7 +9,12 @@ $(document).ready(() => {
       };
     });
 
+    $('.list').on('click', 'li', (e) => {
+      console.log('click');
+    });
+
     $('.list').on('click', 'span', (e) => {
+      e.stopPropagation();
       const $this = $(e.currentTarget);
       const $dataID = $this.parent().data('id');
       $.ajax({
@@ -22,7 +27,7 @@ $(document).ready(() => {
       .catch((err) => {
         console.log(err);
       })
-    })
+    });
 
 }); //
 
