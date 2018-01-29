@@ -10,10 +10,11 @@ app.use(bodyParser.urlencoded({extended:true}));
 
 const todoRoutes = require('./routes/todos');
 app.use('/api/todos', todoRoutes);
+app.use(express.static(__dirname + '/views'));
 
 //Routes
 app.get('/', (req, res) => {
-  res.send('Landing');
+  res.sendFile('index.html');
 });
 
 //Listener
