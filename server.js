@@ -7,11 +7,6 @@ const bodyParser = require('body-parser')
 //Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
-
-const todoRoutes = require('./routes/todos');
-app.use('/api/todos', todoRoutes);
-app.use(express.static(__dirname + '/views'));
-app.use(express.static(__dirname + '/public'));
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", '*');
     res.header("Access-Control-Allow-Credentials", true);
@@ -19,6 +14,12 @@ app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
     next();
 });
+
+const todoRoutes = require('./routes/todos');
+app.use('/api/todos', todoRoutes);
+app.use(express.static(__dirname + '/views'));
+app.use(express.static(__dirname + '/public'));
+
 
 //Routes
 app.get('/', (req, res) => {
