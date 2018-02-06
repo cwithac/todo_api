@@ -1,8 +1,8 @@
 # To Do List API
 
-SPA with API
-
-[Repository](https://github.com/cwithac/todo_api)
+- [SPA GUI](https://todo-api-mernstack.herokuapp.com)
+- [Repository](https://github.com/cwithac/todo_api)
+- [Hosted API](https://todo-api-mernstack.herokuapp.com/api/todos)
 
 ```
 Technologies Used:
